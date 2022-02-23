@@ -1,0 +1,22 @@
+string decodeHuffmanData(struct MinHeapNode* root, string binaryString)
+{
+    string ans="";
+   MinHeapNode *temp=root;
+   for(int i=0;i<binaryString.size();i++)
+   {
+       if(binaryString[i] == '0')
+       {
+           temp = temp->left;
+       }
+       else
+       {
+           temp = temp->right;
+       }
+       if(temp->left == NULL && temp->right == NULL)
+       {
+           ans+=temp->data;
+           temp = root;
+       }
+   }
+   return ans;
+}
