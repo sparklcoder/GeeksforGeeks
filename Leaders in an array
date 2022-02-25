@@ -1,0 +1,15 @@
+vector<int> leaders(int a[], int n){
+vector<int> v;
+       stack<int> s;
+       s.push(a[n-1]);
+       for(int i=n-2; i>=0; i--)
+       {
+           if(a[i]>=s.top()) s.push(a[i]);
+       }
+       while(s.size()!=0)
+       {
+           v.push_back(s.top());
+           s.pop();
+       }
+       return v;
+   }
