@@ -1,0 +1,12 @@
+class Solution {
+  public:
+    long long int nthPosition(long long int n){
+    if(n==1)
+       return 1;
+    else
+       return 2*nthPosition(n/2);
+   
+
+
+    }
+};
