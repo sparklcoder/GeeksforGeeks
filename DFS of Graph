@@ -1,0 +1,20 @@
+unordered_set<int> visited;
+    void findDfS(vector<int> adj[],vector<int>& result,int i){
+        // i-> reffers to the node;
+        visited.insert(i);
+        // putting the node in to result for which findDfS is called;
+        result.push_back(i);
+        for(int j=0;j<adj[i].size();j++){
+            // if the node is not visited the call the findDfS function for that node;
+            if(!visited.count(adj[i][j])){
+                findDfS(adj,result,adj[i][j]);
+            }
+        }
+    }
+  public:
+    // Function to return a list containing the DFS traversal of the graph.
+    vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+        vector<int> result;
+        findDfS(adj,result,0);
+        return result;
+    }
